@@ -1,0 +1,40 @@
+:host {
+    display: block;
+    margin-bottom: 2rem;
+}
+
+.reservation-info {
+    flex: 1;
+    min-width: 250px;
+}
+
+.reservation-info h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+    color: #2c3e50;
+}
+
+.reservation-details {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 1.5rem;
+}
+
+.reservation-details li {
+    margin-bottom: 0.75rem;
+    font-size: 1rem;
+    color: #2c3e50;
+}
+
+.reservation-details li strong {
+    font-weight: 600;
+}
+
+.reservation-image {
+    width: 800px;
+    height: 200px;
+    max-width: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}

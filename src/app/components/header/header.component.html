@@ -1,0 +1,20 @@
+<header class="topbar">
+    <div class="topbar-inner">
+        <div class="logo" routerLink="/" (click)="closeMenu()">
+            <img src="icon-192.png" alt="Logo" class="logo-img" />
+            Guest Experience
+        </div>
+        <button class="menu-toggle" aria-label="Toggle menu" (click)="toggleMenu()">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+                <rect x="4" y="5" width="16" height="2" />
+                <rect x="4" y="11" width="16" height="2" />
+                <rect x="4" y="17" width="16" height="2" />
+            </svg>
+        </button>
+        <nav [ngClass]="{ open: navOpen }">
+            <a routerLink="/" (click)="closeMenu()">Home</a>
+            <a routerLink="/reservations" (click)="closeMenu()">Reservations</a>
+            <a routerLink="/profile" (click)="closeMenu()">Profile</a>
+        </nav>
+    </div>
+</header>

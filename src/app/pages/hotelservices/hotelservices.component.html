@@ -1,0 +1,16 @@
+<section class="services-container">
+  <h2>Available Services</h2>
+
+  <div class="services-wrapper">
+    <div class="services-grid">
+      <div class="card" *ngFor="let service of services">
+        <div class="service-icon">{{ service.icon }}</div>
+        <h3>{{ service.title }}</h3>
+        <p>{{ service.description }}</p>
+        <div class="button-wrapper">
+          <button class="btn">Request</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

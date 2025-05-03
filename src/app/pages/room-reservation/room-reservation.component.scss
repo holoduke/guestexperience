@@ -1,0 +1,63 @@
+.reservation-card {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  }
+  
+  h2 {
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+  
+  .info-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  
+  ul {
+    padding-left: 1.2rem;
+    margin: 0.5rem 0;
+  }
+  
+  .button-group {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+  }
+  
+  .btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 0.6rem 1.4rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .btn:hover {
+    background-color: #0056b3;
+  }
+  
+  .btn.outline {
+    background: transparent;
+    color: #007bff;
+    border: 1px solid #007bff;
+  }
+  
+  .btn.danger {
+    background: #dc3545;
+  }
+  
+  .btn.danger:hover {
+    background: #b02a37;
+  }
+  

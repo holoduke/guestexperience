@@ -1,0 +1,88 @@
+/* Topbar */
+.topbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--primary-color);
+    color: var(--light-text);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+}
+
+.topbar-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1rem 1rem 1rem;
+}
+
+.logo {
+    font-size: 1.25rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    width: 24px;
+    height: 24px;
+    margin-right: 0.5rem;
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.menu-toggle svg {
+    width: 24px;
+    height: 24px;
+    color: var(--light-text);
+}
+
+.topbar nav {
+    display: flex;
+    gap: 1rem;
+}
+
+.topbar nav a {
+    font-size: 1rem;
+    color: var(--light-text);
+    text-decoration: none;
+    opacity: 1;
+    transition: opacity 0.2s;
+}
+
+.topbar nav a:hover {
+    opacity: 0.8;
+}
+
+/* Responsive navigation */
+@media (max-width: 1000px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .topbar nav {
+        display: none;
+        flex-direction: column;
+        background: var(--primary-color);
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        padding: 1rem 0;
+    }
+
+    .topbar nav.open {
+        display: flex;
+    }
+
+    .topbar nav a {
+        padding: 0.5rem 1.5rem;
+    }
+}

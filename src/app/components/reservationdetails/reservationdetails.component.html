@@ -1,0 +1,31 @@
+<section class="card">
+    <div class="reservation-info">
+      <h2>Welcome back, {{ guestName }}!</h2>
+      <p style="margin-bottom: 1.5rem;">
+        Here’s your latest reservation at a glance.
+      </p>
+      <ul class="reservation-details">
+        <li><strong>Hotel:</strong> Guest Experience</li>
+        <li><strong>Reservation #:</strong> {{ reservationNumber }}</li>
+        <li><strong>Check-in:</strong> {{ checkIn }}</li>
+        <li><strong>Check-out:</strong> {{ checkOut }}</li>
+        <li><strong>Room:</strong> {{ room }}</li>
+      </ul>
+  
+      <div class="button-group">
+        <a class="btn" [routerLink]="['/reservation', reservationNumber]">
+          <svg class="btn-icon" viewBox="0 0 24 24">
+            <path d="M3 8h18v2H3V8zm0 6h18v2H3v-2z" />
+          </svg>
+          View Reservation
+        </a>
+      </div>
+    </div>
+  
+    <img
+      class="reservation-image"
+      src="/hotelroom.png"
+      alt="Hotel Room"
+    />
+  </section>
+  

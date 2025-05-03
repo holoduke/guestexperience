@@ -1,0 +1,57 @@
+<div class="container">
+<section class="reservation-card card">
+    <h2>Your Reservation Details</h2>
+   
+    <div class="info-row">
+      <div>
+        <strong>Guest:</strong> {{ reservation.guestName }}<br>
+        <strong>Reservation #:</strong> {{ reservation.reservationNumber }}
+      </div>
+      <div>
+        <strong>Check-in:</strong> {{ reservation.checkIn }}<br>
+        <strong>Check-out:</strong> {{ reservation.checkOut }}
+      </div>
+    </div>
+  
+    <div class="info-row">
+      <div>
+        <strong>Nights:</strong> {{ reservation.nights }}<br>
+        <strong>Adults:</strong> {{ reservation.adults }}<br>
+        <strong>Children:</strong> {{ reservation.children }}
+      </div>
+      <div>
+        <strong>Room:</strong> {{ reservation.roomType }}<br>
+        <strong>Bed:</strong> {{ reservation.bedType }}
+      </div>
+    </div>
+  
+    <div class="info-row">
+      <div>
+        <strong>Amenities:</strong>
+        <ul>
+          <li *ngFor="let amenity of reservation.amenities">{{ amenity }}</li>
+        </ul>
+      </div>
+      <div>
+        <strong>Price per night:</strong> €{{ reservation.pricePerNight }}<br>
+        <strong>Total:</strong> €{{ reservation.totalPrice }}
+      </div>
+    </div>
+  
+    <div class="info-row">
+      <div>
+        <strong>Special Notes:</strong>
+        <p>{{ reservation.notes }}</p>
+      </div>
+    </div>
+  
+    <button class="btn danger">
+        <svg class="btn-icon" viewBox="0 0 24 24">
+          <path d="M12 2a10 10 0 1 0 0 20a10 10 0 0 0 0-20zm4.24 13.66l-1.41 1.41L12 13.41l-2.83 2.83-1.41-1.41L10.59 12 7.76 9.17l1.41-1.41L12 10.59l2.83-2.83 1.41 1.41L13.41 12l2.83 2.83z"/>
+        </svg>
+        Cancel Reservation
+      </button>
+      
+  </section>
+</div>
+  
