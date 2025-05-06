@@ -1,0 +1,29 @@
+<div class="card">
+    <h2>Push Notification Reminder</h2>
+  
+    <div *ngIf="notificationSupported; else unsupported">
+      <p *ngIf="!permissionGranted">
+        Notifications are not yet enabled.<br><br>
+        <button class="btn" (click)="requestPermission()">
+            <svg class="btn-icon" viewBox="0 0 24 24">
+              <path d="M12 22a2 2 0 0 0 2-2h-4a2 2 0 0 0 2 2zm6-6V11a6 6 0 0 0-5-5.91V4a1 1 0 1 0-2 0v1.09A6 6 0 0 0 6 11v5l-1.29 1.29a1 1 0 0 0 .7 1.71h14a1 1 0 0 0 .7-1.71L18 16z"/>
+            </svg>
+            Enable Notifications
+          </button>
+      </p>
+  
+      <p *ngIf="permissionGranted">
+        Notifications are enabled.<br><br>
+        <button class="btn" (click)="sendReminder()">
+            <svg class="btn-icon" viewBox="0 0 24 24">
+              <path d="M12 22a2 2 0 0 0 2-2h-4a2 2 0 0 0 2 2zm6-6V11a6 6 0 0 0-5-5.91V4a1 1 0 1 0-2 0v1.09A6 6 0 0 0 6 11v5l-1.29 1.29a1 1 0 0 0 .7 1.71h14a1 1 0 0 0 .7-1.71L18 16z"/>
+            </svg>
+            Send Reminder
+          </button>
+      </p>
+    </div>
+  
+    <ng-template #unsupported>
+      <p>Your browser does not support notifications.</p>
+    </ng-template>
+  </div>
