@@ -78,6 +78,7 @@ self.addEventListener('fetch', (event) => {
 
 // Handle messages from Angular for local notification
 self.addEventListener('message', (event) => {
+    console.log('[Service Worker] Received message:', event.data);
   if (event.data && event.data.type === 'SHOW_NOTIFICATION') {
     self.registration.showNotification(event.data.title, {
       body: event.data.body,

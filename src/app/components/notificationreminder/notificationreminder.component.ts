@@ -1,5 +1,6 @@
 import { Component, NgZone } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NotificationService } from '../../services/notification.service';
 
 @Component({
   selector: 'app-notificationreminder',
@@ -12,7 +13,7 @@ export class NotificationReminderComponent {
   notificationSupported = 'Notification' in window;
   permissionGranted = Notification.permission === 'granted';
 
-  constructor(private zone: NgZone) {}
+  constructor(private zone: NgZone, private notify: NotificationService) {}
 
   requestPermission(): void {
     if (this.notificationSupported) {
@@ -21,6 +22,18 @@ export class NotificationReminderComponent {
             this.permissionGranted = permission === 'granted';
           });
       });
+    }
+  }
+
+  async remind() {
+    const ok = await this.notify.requestPermission();
+    if (ok) {
+      await this.notify.showLocalNotification(
+        '⏰ Reservation Reminder',
+        'Don’t forget your check‑in tomorrow at Guest Experience!'
+      );
+    } else {
+      alert('Please enable notifications in your browser settings.');
     }
   }
 
