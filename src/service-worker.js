@@ -81,7 +81,7 @@ self.addEventListener('message', (event) => {
   if (event.data && event.data.type === 'SHOW_NOTIFICATION') {
     self.registration.showNotification(event.data.title, {
       body: event.data.body,
-      icon: event.data.icon || '/assets/icons/icon-192x192.png'
+      icon: event.data.icon || './icon-192.png'
     });
   }
 });
