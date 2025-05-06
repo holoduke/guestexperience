@@ -24,6 +24,7 @@ export class AppComponent {
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.addEventListener('message', (event) => {
               if (event.data?.type === 'UPDATE_AVAILABLE') {
+                console.log('Update available',event);
                 this.showUpdateBanner = true;
               }
             });
