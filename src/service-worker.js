@@ -53,30 +53,32 @@ self.addEventListener('install', (event) => {
 
 // Activate event: clean up old caches and notify client
 self.addEventListener('activate', (event) => {
-  console.log('[Service Worker] Activating...',STATIC_CACHE);
-  event.waitUntil(
-    (async () => {
-      const keys = await caches.keys();
-      await Promise.all(
-        keys.map((key) => {
-          if (key !== STATIC_CACHE && key !== DYNAMIC_CACHE) {
-            console.log('[Service Worker] Removing old cache:', key);
-            return caches.delete(key);
-          }
-        })
-      );
-
-      // Take control of uncontrolled clients
-      await self.clients.claim();
-
-      // Notify all open clients of update
-      const allClients = await self.clients.matchAll({ includeUncontrolled: true });
-      for (const client of allClients) {
-        client.postMessage({ type: 'UPDATE_AVAILABLE' });
-      }
-    })()
-  );
-});
+    console.log('[Service Worker] Activating...', STATIC_CACHE);
+    event.waitUntil(
+      (async () => {
+        // Clean old caches
+        const keys = await caches.keys();
+        await Promise.all(
+          keys.map((key) => {
+            if (key !== STATIC_CACHE && key !== DYNAMIC_CACHE) {
+              console.log('[Service Worker] Deleting old cache:', key);
+              return caches.delete(key);
+            }
+          })
+        );
+  
+        // Claim control so new SW takes effect immediately
+        await self.clients.claim();
+  
+        // Notify all clients that a new version is available
+        const allClients = await self.clients.matchAll({ includeUncontrolled: true });
+        for (const client of allClients) {
+          client.postMessage({ type: 'UPDATE_AVAILABLE' });
+        }
+      })()
+    );
+  });
+  
 
 // Fetch event: handle static + dynamic caching
 self.addEventListener('fetch', (event) => {
