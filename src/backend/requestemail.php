@@ -12,7 +12,7 @@ $hotel = $_POST['hotel'] ?? 'our hotel';
 $reservationNumber = $_POST['reservationNumber'] ?? '';
 $checkIn = $_POST['checkIn'] ?? '';
 $checkOut = $_POST['checkOut'] ?? '';
-$guestEmail = $_POST['guestEmail'] ?? null; // expecting a guestEmail field
+$guestEmail = $_POST['email'] ?? null; // expecting a guestEmail field
 
 //print_r($_POST);
 if (!$guestEmail) {
