@@ -38,6 +38,11 @@
                 "glob": "**/*.php",
                 "input": "src/backend",
                 "output": "backend"
+              },
+              {
+                "glob": "firebase-messaging-sw.js",
+                "input": "src",
+                "output": "/"
               }
             ],
             "styles": [
@@ -140,6 +145,11 @@
                 "glob": "**/*.php",
                 "input": "src/backend",
                 "output": "backend"
+              },
+              {
+                "glob": "firebase-messaging-sw.js",
+                "input": "src",
+                "output": "/"
               }
             ],
             "styles": [
