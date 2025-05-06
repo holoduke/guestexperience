@@ -2,7 +2,6 @@ import {Component, ViewEncapsulation} from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './components/header/header.component';
-import { SwUpdate } from '@angular/service-worker';
 
 @Component({
     selector: 'app-root',
@@ -14,8 +13,6 @@ import { SwUpdate } from '@angular/service-worker';
 })
 export class AppComponent {
 
-    constructor(private swUpdate: SwUpdate) {}
-
 
     showUpdateBanner = false;
     navOpen = false;
@@ -24,9 +21,9 @@ export class AppComponent {
     }
 
     ngOnInit(): void {
-        if (this.swUpdate.isEnabled) {
-            this.swUpdate.versionUpdates.subscribe(event => {
-              if (event.type === 'VERSION_READY') {
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.addEventListener('message', (event) => {
+              if (event.data?.type === 'UPDATE_AVAILABLE') {
                 this.showUpdateBanner = true;
               }
             });

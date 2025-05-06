@@ -73,8 +73,7 @@
               "outputHashing": "all",
               "localize": [
                 "en"
-              ],
-              "serviceWorker": "ngsw-config.json"
+              ]
             },
             "production-sourcemaps": {
               "sourceMap": true,
