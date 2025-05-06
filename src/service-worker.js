@@ -67,7 +67,9 @@ self.addEventListener('activate', (event) => {
               return caches.delete(key);
             }
           })
-        );
+        ); 
+
+        //sdd
 
         // Claim control so new SW takes effect immediately
         await self.clients.claim();
