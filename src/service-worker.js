@@ -86,3 +86,26 @@ self.addEventListener('message', (event) => {
     });
   }
 });
+
+self.addEventListener('notificationclick', event => {
+    event.notification.close(); // close the notification
+  
+    // Define the URL you want to open—usually your app’s root
+    const urlToOpen = new URL('/', self.location.origin).href;
+  
+    event.waitUntil(
+      // Get all the Window clients under this service worker’s control
+      self.clients.matchAll({ type: 'window', includeUncontrolled: true }).then(clientList => {
+        // Try to find an open window/tab for the URL
+        for (const client of clientList) {
+          if (client.url === urlToOpen && 'focus' in client) {
+            return client.focus();
+          }
+        }
+        // If no existing window, open a new one
+        if (self.clients.openWindow) {
+          return self.clients.openWindow(urlToOpen);
+        }
+      })
+    );
+  });
