@@ -5,9 +5,40 @@ const STATIC_FILES = [
   '/index.html',
   '/main.js',
   '/styles.css',
-  '/icon-192x192.png',
+  '/icon-192.png',
   '/manifest.webmanifest'
 ];
+
+
+// 1⃣ Import Firebase SDK scripts
+importScripts('https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js');
+importScripts('https://www.gstatic.com/firebasejs/9.22.2/firebase-messaging-compat.js');
+
+// 2⃣ Initialize Firebase
+firebase.initializeApp({
+  apiKey: "YOUR_API_KEY",
+  authDomain: "YOUR_PROJECT.firebaseapp.com",
+  projectId: "YOUR_PROJECT_ID",
+  storageBucket: "YOUR_PROJECT.appspot.com",
+  messagingSenderId: "YOUR_SENDER_ID",
+  appId: "YOUR_APP_ID"
+});
+
+// 3⃣ Retrieve Firebase Messaging instance
+const messaging = firebase.messaging();
+
+// 4⃣ Handle background messages from FCM
+messaging.onBackgroundMessage(payload => {
+  console.log('[SW][FCM] Received background message:', payload);
+  const notification = payload.notification || {};
+  const title = notification.title || 'New Notification';
+  const options = {
+    body: notification.body,
+    icon: notification.icon || '/icon-192x192.png',
+    data: payload.data // optional: pass-through data for click handler
+  };
+  self.registration.showNotification(title, options);
+});
 
 // Install event: pre-cache static files
 self.addEventListener('install', (event) => {
