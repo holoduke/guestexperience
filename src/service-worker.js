@@ -58,6 +58,8 @@ self.addEventListener('activate', (event) => {
       (async () => {
         // Clean old caches
         const keys = await caches.keys();
+        const hadOld = keys.includes(STATIC_CACHE);
+        
         await Promise.all(
           keys.map((key) => {
             if (key !== STATIC_CACHE && key !== DYNAMIC_CACHE) {
@@ -66,15 +68,15 @@ self.addEventListener('activate', (event) => {
             }
           })
         );
-  
+
         // Claim control so new SW takes effect immediately
         await self.clients.claim();
   
         // Notify all clients that a new version is available
         const allClients = await self.clients.matchAll({ includeUncontrolled: true });
-        for (const client of allClients) {
-          client.postMessage({ type: 'UPDATE_AVAILABLE' });
-        }
+        if (hadOld) {
+            allClients.forEach(c => c.postMessage({ type: 'UPDATE_AVAILABLE' }));
+          }
       })()
     );
   });
