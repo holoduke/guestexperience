@@ -24,7 +24,7 @@ if (!$guestEmail) {
 // Recipient
 $to = filter_var($guestEmail, FILTER_VALIDATE_EMAIL);
 if (!$to) {
-    http_response_code(400);
+    http_response_code(500);
     echo json_encode(["status" => "error", "message" => "Invalid email address."]);
     exit;
 }

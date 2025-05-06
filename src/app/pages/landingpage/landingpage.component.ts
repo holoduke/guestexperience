@@ -4,10 +4,11 @@ import {ReservationDetailsComponent} from "../../components/reservationdetails/r
 import { OtherlinksComponent } from "../../components/otherlinks/otherlinks.component";
 import { MailmetestComponent } from "../../components/mailmetest/mailmetest.component";
 import { NotificationReminderComponent } from "../../components/notificationreminder/notificationreminder.component";
+import { NotificationBannerComponent } from "../../components/notificationbanner/notification-banner.component";
 
 @Component({
   selector: 'app-landingpage',
-  imports: [InstallButtonComponent, ReservationDetailsComponent, OtherlinksComponent, MailmetestComponent, NotificationReminderComponent],
+  imports: [InstallButtonComponent, NotificationBannerComponent, ReservationDetailsComponent, OtherlinksComponent, MailmetestComponent, NotificationReminderComponent, NotificationBannerComponent],
   templateUrl: './landingpage.component.html',
   styleUrl: './landingpage.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
