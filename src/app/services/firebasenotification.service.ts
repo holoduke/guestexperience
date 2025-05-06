@@ -6,12 +6,13 @@ import { BehaviorSubject } from 'rxjs';
 
 // TODO: Replace with your Firebase project's config
 const firebaseConfig = {
-  apiKey: 'YOUR_API_KEY',
-  authDomain: 'YOUR_PROJECT.firebaseapp.com',
-  projectId: 'YOUR_PROJECT_ID',
-  storageBucket: 'YOUR_PROJECT.appspot.com',
-  messagingSenderId: 'YOUR_SENDER_ID',  
-  appId: 'YOUR_APP_ID'
+    apiKey: "AIzaSyDvqjNb0d_wbashOmmkwhmQS5CUUH969Vo",
+    authDomain: "guestexperience-20abb.firebaseapp.com",
+    projectId: "guestexperience-20abb",
+    storageBucket: "guestexperience-20abb.firebasestorage.app",
+    messagingSenderId: "383566544649",
+    appId: "1:383566544649:web:792b4fe7cdcd4d4da11dd8",
+    measurementId: "G-JG5YZTFBGN"
 };
 
 @Injectable({ providedIn: 'root' })
