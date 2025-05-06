@@ -20,5 +20,10 @@ platformBrowserDynamic()
       navigator.serviceWorker.register('/service-worker.js')
         .then(reg => console.log('[SW] registered:', reg))
         .catch(err => console.error('[SW] registration failed:', err));
+
+    navigator.serviceWorker
+        .register('/firebase-messaging-sw.js')
+        .then(reg => console.log('FCM SW registered', reg))
+        .catch(err => console.error('FCM SW failed', err));   
     });
   }
