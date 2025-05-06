@@ -11,7 +11,7 @@ const STATIC_FILES = [
 
 // Install event: pre-cache static files
 self.addEventListener('install', (event) => {
-  console.log('[Service Worker] Installing...');
+  console.log('[Service Worker] Installing...',STATIC_CACHE);
   self.skipWaiting(); // Activate immediately after install
   event.waitUntil(
     caches.open(STATIC_CACHE).then((cache) => {
@@ -22,7 +22,7 @@ self.addEventListener('install', (event) => {
 
 // Activate event: clean up old caches and notify client
 self.addEventListener('activate', (event) => {
-  console.log('[Service Worker] Activating...');
+  console.log('[Service Worker] Activating...',STATIC_CACHE);
   event.waitUntil(
     (async () => {
       const keys = await caches.keys();
