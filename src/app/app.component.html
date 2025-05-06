@@ -6,3 +6,9 @@
 <div class="content">
     <router-outlet />
 </div>
+
+<div class="update-banner" *ngIf="showUpdateBanner">
+    <span>🔄 A new version is available.</span>
+    <button class="btn" (click)="reloadPage()">Update Now</button>
+    <button class="btn btn-outline" (click)="dismissBanner()">Dismiss</button>
+  </div>

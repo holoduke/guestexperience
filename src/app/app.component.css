@@ -99,3 +99,48 @@ input[type="email"] {
     border-radius: 6px;
     font-size: 1rem;
 }
+
+
+
+
+
+.update-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #323232;
+    color: white;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    z-index: 9999;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3);
+    font-size: 0.95rem;
+  }
+  
+  .btn {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .btn-outline {
+    background: transparent;
+    border: 1px solid white;
+    color: white;
+  }
+  
+  .btn:hover {
+    background-color: #45a045;
+  }
+  
+  .btn-outline:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  

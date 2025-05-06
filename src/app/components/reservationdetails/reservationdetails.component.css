@@ -19,6 +19,7 @@
     list-style: none;
     padding-left: 0;
     margin-bottom: 1.5rem;
+    font-variant: all-small-caps;
 }
 
 .reservation-details li {
